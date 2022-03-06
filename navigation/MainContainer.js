@@ -1,44 +1,51 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import { StyleSheet } from 'react-native';
+//Icon package
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 //Screens
 import HomeScreen from './screens/HomeScreen';
 import ProfileScreen from './screens/ProfileScreen';
-import DetailsScreen from './screens/DetailsScreen';
+import ListsScreen from './screens/DetailsScreen';
 
-const homeName = 'Home';
-const detailsName = 'Details';
-const profileName = 'Profile';
-
+//Screen names
+const lists = 'Lists';
+const shopping = 'Shopping';
+const profile = 'Profile';
 const Tab = createBottomTabNavigator();
+
 
 const MainContainer = () => (
     <NavigationContainer>
         <Tab.Navigator
-        initialRouteName={homeName}
+        initialRouteName={lists}
         screenOptions={({route})=> ({
             tabBarIcon: ({focused})=>{
                 let iconName;
-                if(route.name === homeName){
-                    iconName = focused? 'home' : 'home-outline';
-                }else if(route.name === detailsName){
-                    iconName = focused? 'list' : 'list-outline';
-                }else if(route.name === profileName){
-                    iconName = focused? 'settings' : 'settings-outline';
+                if(route.name === lists){
+                    iconName = 'list';
+                }else if(route.name === shopping){
+                    iconName = 'shopping-cart'
+                }else if(route.name === profile){
+                    iconName = 'user';
                 }
-                return <Icon name="rocket"/>
+                return <Icon style={styles.icons} name={iconName}/>
             }
         })}>
-
-        <Tab.Screen name={homeName} component={HomeScreen}/>
-        <Tab.Screen name={detailsName} component={DetailsScreen}/>
-        <Tab.Screen name={profileName} component={ProfileScreen}/>
+        <Tab.Screen name={lists} component={HomeScreen}/>
+        <Tab.Screen name={shopping} component={ListsScreen}/>
+        <Tab.Screen name={profile} component={ProfileScreen}/>
 
         </Tab.Navigator>
     </NavigationContainer>
   );
 
+  const styles = StyleSheet.create({
+    icons: {
+      fontSize: 20,
+      fontWeight: 'bold'
+    },
+  });
 
 export default MainContainer;
