@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { StyleSheet } from "react-native";
+import styled from "styled-components";
 //Icon package
 import Icon from "react-native-vector-icons/FontAwesome";
 //Screens
@@ -15,12 +15,17 @@ const shopping = "Shopping";
 const profile = "Profile";
 const Tab = createBottomTabNavigator();
 
+const StyledIcons = styled(Icon)`
+  font-size: 20px;
+  color: ${(props) => props.theme.colors.primary};
+`;
+
 const MainContainer = () => (
   <NavigationContainer>
     <Tab.Navigator
       initialRouteName={lists}
       screenOptions={({ route }) => ({
-        tabBarIcon: ({ focused }) => {
+        tabBarIcon: () => {
           let iconName;
           if (route.name === lists) {
             iconName = "list";
@@ -29,7 +34,7 @@ const MainContainer = () => (
           } else if (route.name === profile) {
             iconName = "user";
           }
-          return <Icon style={styles.icons} name={iconName} />;
+          return <StyledIcons name={iconName} />;
         },
       })}
     >
@@ -39,12 +44,5 @@ const MainContainer = () => (
     </Tab.Navigator>
   </NavigationContainer>
 );
-
-const styles = StyleSheet.create({
-  icons: {
-    fontSize: 20,
-    fontWeight: "bold",
-  },
-});
 
 export default MainContainer;
