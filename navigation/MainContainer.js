@@ -16,7 +16,7 @@ const profile = "Profile";
 const Tab = createBottomTabNavigator();
 
 const StyledIcons = styled(Icon)`
-  font-size: 20px;
+  font-size: 25px;
   color: ${(props) => props.theme.colors.primary};
 `;
 
@@ -38,9 +38,15 @@ const MainContainer = () => (
         },
         headerShown: false,
       })}
+      tabBarOptions={{
+        activeTintColor: "#58D2A1",
+        labelStyle: {
+          fontSize: 12,
+        },
+      }}
     >
-      <Tab.Screen name={shopping} component={ListsScreen} />
-      <Tab.Screen name={lists} component={ShoppingScreen} />
+      <Tab.Screen name={lists} component={ListsScreen} />
+      <Tab.Screen name={shopping} component={ShoppingScreen} />
       <Tab.Screen name={profile} component={ProfileScreen} />
     </Tab.Navigator>
   </NavigationContainer>
