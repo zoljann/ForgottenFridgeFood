@@ -5,9 +5,9 @@ import styled from "styled-components";
 //Icon package
 import Icon from "react-native-vector-icons/FontAwesome";
 //Screens
-import HomeScreen from "./screens/HomeScreen";
+import ShoppingScreen from "./screens/ShoppingScreen";
 import ProfileScreen from "./screens/ProfileScreen";
-import ListsScreen from "./screens/DetailsScreen";
+import ListsScreen from "./screens/ListsScreen";
 
 //Screen names
 const lists = "Lists";
@@ -36,10 +36,11 @@ const MainContainer = () => (
           }
           return <StyledIcons name={iconName} />;
         },
+        headerShown: false,
       })}
     >
-      <Tab.Screen name={lists} component={HomeScreen} />
       <Tab.Screen name={shopping} component={ListsScreen} />
+      <Tab.Screen name={lists} component={ShoppingScreen} />
       <Tab.Screen name={profile} component={ProfileScreen} />
     </Tab.Navigator>
   </NavigationContainer>
