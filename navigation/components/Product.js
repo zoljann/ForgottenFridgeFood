@@ -6,7 +6,7 @@ const Wrapper = styled.View`
   height: 80px;
   background-color: white;
   border-radius: 15px;
-  border: 0.5px solid gray;
+  border: 0.5px solid ${(props) => props.theme.text.gray};
   padding: 5%;
   margin-bottom: 10px;
   //add box shadow

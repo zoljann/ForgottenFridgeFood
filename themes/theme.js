@@ -5,5 +5,6 @@ export const theme = {
   text: {
     black: "black",
     gray: "gray",
+    white: "white",
   },
 };
