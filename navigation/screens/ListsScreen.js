@@ -9,6 +9,7 @@ const Wrapper = styled.View`
 const Texts = styled.Text``;
 const MenuItems = styled.View`
   align-items: center;
+  margin-top: 120%;
 `;
 
 const ListsScreen = ({ navigation }) => (

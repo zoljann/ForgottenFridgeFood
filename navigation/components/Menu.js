@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styled from "styled-components";
 
 const Wrapper = styled.View`
-  height: 28%;
-  width: 75%;
+  height: 35px;
+  width: 80%;
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 50px;
   justify-content: space-between;
@@ -13,7 +13,7 @@ const Wrapper = styled.View`
 const Texts = styled.Text`
   margin: 0 5% 0 5%;
   color: ${(props) => props.theme.text.white};
-  font-size: 18px;
+  font-size: 17px;
 `;
 
 const Menu = () => {
@@ -24,9 +24,9 @@ const Menu = () => {
   };
   return (
     <Wrapper>
-      <Texts onPress={onPress}>xd</Texts>
-      <Texts>xd</Texts>
-      <Texts>xd</Texts>
+      <Texts onPress={onPress}>Add</Texts>
+      <Texts>Scan</Texts>
+      <Texts>Sort</Texts>
     </Wrapper>
   );
 };
