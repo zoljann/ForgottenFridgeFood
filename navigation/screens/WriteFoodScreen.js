@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { TouchableOpacity } from "react-native";
 import styled from "styled-components";
 
 const Wrapper = styled.View`
@@ -27,11 +28,16 @@ const TextInputStyled = styled.TextInput`
   text-align: center;
   color: ${(props) => props.theme.text.white};
 `;
+
 const WriteFoodScreen = ({ navigation }) => {
   return (
     <Wrapper>
       <TextInputStyled placeholder="Name" />
-      <AddButton>
+      <AddButton
+        onPress={() => {
+          navigation.navigate("Lists", { key: 1, name: "nedim" });
+        }}
+      >
         <AddButtonText>Add food</AddButtonText>
       </AddButton>
     </Wrapper>

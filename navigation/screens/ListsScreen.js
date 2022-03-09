@@ -14,10 +14,8 @@ const Texts = styled.Text``;
 const MenuItems = styled.View`
   align-items: center;
 `;
-const Dugme = styled.TouchableOpacity`
-  background-color: red;
-`;
-const ListsScreen = ({ navigation }) => {
+const ListsScreen = ({ navigation, route }) => {
+  const { key, name } = route.params;
   return (
     <Wrapper>
       <SearchBar
@@ -33,9 +31,10 @@ const ListsScreen = ({ navigation }) => {
         placeholderTextColor={"#479FEC"}
         placeholder={"Do i have.."}
       />
-      <Dugme>
-        <Texts>yya</Texts>
-      </Dugme>
+      <Texts>
+        {key}
+        {name}
+      </Texts>
       <ProductContainer>
         <Product />
       </ProductContainer>
