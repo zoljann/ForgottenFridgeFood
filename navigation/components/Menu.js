@@ -18,8 +18,6 @@ const Texts = styled.Text`
   font-size: 18px;
 `;
 const StyledView = styled.View`
-  flex-direction: row;
-  align-items: center;
   padding-left: 5%;
 `;
 const StyledIcons = styled(Icon)`
@@ -48,23 +46,32 @@ const TextInputStyled = styled.TextInput`
   width: 100%;
   text-align: center;
 `;
-
+const MenuButton = styled.TouchableOpacity`
+  flex-direction: row;
+  align-items: center;
+`;
 const Menu = () => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
     <Wrapper>
       <StyledView>
-        <StyledIcons name={"pencil"} />
-        <Texts onPress={() => setModalVisible(true)}>Write</Texts>
+        <MenuButton onPress={() => setModalVisible(true)}>
+          <StyledIcons name={"pencil"} />
+          <Texts>Write</Texts>
+        </MenuButton>
       </StyledView>
       <StyledView>
-        <StyledIcons name={"camera"} />
-        <Texts>Scan</Texts>
+        <MenuButton>
+          <StyledIcons name={"camera"} />
+          <Texts>Scan</Texts>
+        </MenuButton>
       </StyledView>
       <StyledView>
-        <StyledIcons name={"sort"} />
-        <Texts>Sort</Texts>
+        <MenuButton>
+          <StyledIcons name={"sort"} />
+          <Texts>Sort</Texts>
+        </MenuButton>
       </StyledView>
       <Modal
         visible={modalVisible}
