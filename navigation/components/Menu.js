@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
-import { Modal, View, TextInput, StyleSheet } from "react-native";
+import { Modal } from "react-native";
 
 const Wrapper = styled.View`
   height: 35px;
@@ -30,9 +30,23 @@ const ModalTextStyled = styled.Text`
   color: black;
 `;
 const ModalViewStyled = styled.View`
-  height: 10%;
+  margin: 10% 5% 10% 5%;
+  height: 85%;
+  background-color: gray;
+  align-items: center;
+`;
+const CloseButton = styled.TouchableOpacity`
   width: 100%;
-  background-color: white;
+`;
+const CloseButtonText = styled.Text`
+  text-align: right;
+  margin: 0 3% 7% 0;
+  font-size: 30px;
+`;
+const TextInputStyled = styled.TextInput`
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
 `;
 
 const Menu = () => {
@@ -58,24 +72,14 @@ const Menu = () => {
         transparent={true}
       >
         <ModalViewStyled>
-          <ModalTextStyled>xd</ModalTextStyled>
+          <CloseButton onPress={() => setModalVisible(false)}>
+            <CloseButtonText>X</CloseButtonText>
+          </CloseButton>
+          <TextInputStyled placeholder="Name" />
         </ModalViewStyled>
       </Modal>
     </Wrapper>
   );
 };
-
-const styles = StyleSheet.create({
-  modalContent: {
-    height: 100,
-    width: 100,
-    backgroundColor: "white",
-    padding: 22,
-    justifyContent: "center",
-    alignItems: "center",
-    borderRadius: 4,
-    borderColor: "rgba(0, 0, 0, 0.1)",
-  },
-});
 
 export default Menu;
