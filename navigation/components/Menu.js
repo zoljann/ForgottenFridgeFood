@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { Modal, View, TextInput, StyleSheet } from "react-native";
 
 const Wrapper = styled.View`
   height: 35px;
@@ -25,28 +26,56 @@ const StyledIcons = styled(Icon)`
   font-size: 18px;
   color: ${(props) => props.theme.text.white};
 `;
+const ModalTextStyled = styled.Text`
+  color: black;
+`;
+const ModalViewStyled = styled.View`
+  height: 10%;
+  width: 100%;
+  background-color: white;
+`;
 
 const Menu = () => {
-  const [count, setCount] = useState(0);
-  const onPress = () => {
-    setCount((prevCount) => prevCount + 1);
-    console.log(count);
-  };
+  const [modalVisible, setModalVisible] = useState(false);
+
   return (
     <Wrapper>
       <StyledView>
         <StyledIcons name={"pencil"} />
-        <Texts onPress={onPress}>Write</Texts>
+        <Texts onPress={() => setModalVisible(true)}>Write</Texts>
       </StyledView>
       <StyledView>
         <StyledIcons name={"camera"} />
-        <Texts onPress={onPress}>Scan</Texts>
+        <Texts>Scan</Texts>
       </StyledView>
       <StyledView>
         <StyledIcons name={"sort"} />
-        <Texts onPress={onPress}>Sort</Texts>
+        <Texts>Sort</Texts>
       </StyledView>
+      <Modal
+        visible={modalVisible}
+        onRequestClose={() => setModalVisible(false)}
+        transparent={true}
+      >
+        <ModalViewStyled>
+          <ModalTextStyled>xd</ModalTextStyled>
+        </ModalViewStyled>
+      </Modal>
     </Wrapper>
   );
 };
+
+const styles = StyleSheet.create({
+  modalContent: {
+    height: 100,
+    width: 100,
+    backgroundColor: "white",
+    padding: 22,
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 4,
+    borderColor: "rgba(0, 0, 0, 0.1)",
+  },
+});
+
 export default Menu;

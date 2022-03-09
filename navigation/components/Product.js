@@ -26,7 +26,7 @@ const StyledImage = styled(Image)`
 `;
 
 //dodati checkmark da se moze izbrisati proizvod
-const Product = () => (
+const Product = ({ name }) => (
   <Wrapper>
     <FoodName>Ime hrane</FoodName>
     <ExpireDate>Do 21.3.2022</ExpireDate>
