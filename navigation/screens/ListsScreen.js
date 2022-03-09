@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import Product from "../components/Product";
 import Menu from "../components/Menu";
@@ -14,30 +14,35 @@ const Texts = styled.Text``;
 const MenuItems = styled.View`
   align-items: center;
 `;
-
-const ListsScreen = ({ navigation }) => (
-  <Wrapper>
-    <SearchBar
-      inputStyle={{ backgroundColor: "white" }}
-      containerStyle={{
-        backgroundColor: "white",
-        borderWidth: 1,
-        borderRadius: 40,
-        height: 42,
-        justifyContent: "center",
-        marginBottom: 10,
-      }}
-      placeholderTextColor={"#479FEC"}
-      placeholder={"Do i have.."}
-    />
-    <ProductContainer>
-      <Product />
-      <Product />
-    </ProductContainer>
-    <MenuItems>
-      <Menu />
-    </MenuItems>
-  </Wrapper>
-);
-
+const Dugme = styled.TouchableOpacity`
+  background-color: red;
+`;
+const ListsScreen = ({ navigation }) => {
+  return (
+    <Wrapper>
+      <SearchBar
+        inputStyle={{ backgroundColor: "white" }}
+        containerStyle={{
+          backgroundColor: "white",
+          borderWidth: 1,
+          borderRadius: 40,
+          height: 42,
+          justifyContent: "center",
+          marginBottom: 10,
+        }}
+        placeholderTextColor={"#479FEC"}
+        placeholder={"Do i have.."}
+      />
+      <Dugme>
+        <Texts>yya</Texts>
+      </Dugme>
+      <ProductContainer>
+        <Product />
+      </ProductContainer>
+      <MenuItems>
+        <Menu />
+      </MenuItems>
+    </Wrapper>
+  );
+};
 export default ListsScreen;

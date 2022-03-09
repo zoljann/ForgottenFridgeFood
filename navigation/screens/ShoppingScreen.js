@@ -1,4 +1,5 @@
 import React from "react";
+import { AsyncStorage } from "react-native";
 import { SearchBar } from "react-native-elements/dist/searchbar/SearchBar";
 import styled from "styled-components";
 
@@ -7,11 +8,13 @@ const Wrapper = styled.View`
 `;
 const Texts = styled.Text``;
 
-const ShoppingScreen = ({ navigation }) => (
-  <Wrapper>
-    <SearchBar placeholder="cao" />
-    <Texts>ovdje ce ici lista za shopping slican fazon kao i lists</Texts>
-  </Wrapper>
-);
+const ShoppingScreen = ({ navigation }) => {
+  return (
+    <Wrapper>
+      <SearchBar placeholder="cao" />
+      <Texts></Texts>
+    </Wrapper>
+  );
+};
 
 export default ShoppingScreen;

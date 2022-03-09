@@ -26,9 +26,9 @@ const StyledImage = styled(Image)`
 `;
 
 //dodati checkmark da se moze izbrisati proizvod
-const Product = ({ name }) => (
+const Product = (props) => (
   <Wrapper>
-    <FoodName>Ime hrane</FoodName>
+    <FoodName>{props.foodName}</FoodName>
     <ExpireDate>Do 21.3.2022</ExpireDate>
     <StyledImage source={require("../images/milk.png")} />
   </Wrapper>
