@@ -1,3 +1,4 @@
+import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import { TouchableOpacity } from "react-native";
 import styled from "styled-components";
@@ -28,16 +29,31 @@ const TextInputStyled = styled.TextInput`
   text-align: center;
   color: ${(props) => props.theme.text.white};
 `;
+const CloseButton = styled.TouchableOpacity`
+  width: 100%;
+`;
+const CloseButtonText = styled.Text`
+  text-align: right;
+  margin: 0 3% 7% 0;
+  font-size: 30px;
+`;
 
-const WriteFoodScreen = ({ navigation }) => {
+const WriteFoodScreen = () => {
+  const navigation = useNavigation();
+  const handleAddProduct = () => {
+    console.log("testich");
+  };
   return (
     <Wrapper>
-      <TextInputStyled placeholder="Name" />
-      <AddButton
+      <CloseButton
         onPress={() => {
-          navigation.navigate("Lists", { key: 1, name: "nedim" });
+          navigation.navigate("Lists");
         }}
       >
+        <CloseButtonText>X</CloseButtonText>
+      </CloseButton>
+      <TextInputStyled placeholder="Name" />
+      <AddButton onPress={handleAddProduct}>
         <AddButtonText>Add food</AddButtonText>
       </AddButton>
     </Wrapper>

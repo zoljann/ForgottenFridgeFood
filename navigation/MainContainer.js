@@ -51,9 +51,6 @@ const MainContainer = () => (
       <Tab.Screen name={profile} component={ProfileScreen} />
       <Tab.Screen
         options={() => ({
-          tabBarStyle: {
-            display: "none",
-          },
           tabBarButton: () => null,
         })}
         name="WriteFood"
