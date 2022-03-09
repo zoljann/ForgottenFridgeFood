@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Wrapper = styled.View`
   height: 35px;
@@ -13,7 +14,16 @@ const Wrapper = styled.View`
 const Texts = styled.Text`
   margin: 0 5% 0 5%;
   color: ${(props) => props.theme.text.white};
-  font-size: 17px;
+  font-size: 18px;
+`;
+const StyledView = styled.View`
+  flex-direction: row;
+  align-items: center;
+  padding-left: 5%;
+`;
+const StyledIcons = styled(Icon)`
+  font-size: 18px;
+  color: ${(props) => props.theme.text.white};
 `;
 
 const Menu = () => {
@@ -24,9 +34,18 @@ const Menu = () => {
   };
   return (
     <Wrapper>
-      <Texts onPress={onPress}>Add</Texts>
-      <Texts>Scan</Texts>
-      <Texts>Sort</Texts>
+      <StyledView>
+        <StyledIcons name={"pencil"} />
+        <Texts onPress={onPress}>Write</Texts>
+      </StyledView>
+      <StyledView>
+        <StyledIcons name={"camera"} />
+        <Texts onPress={onPress}>Scan</Texts>
+      </StyledView>
+      <StyledView>
+        <StyledIcons name={"sort"} />
+        <Texts onPress={onPress}>Sort</Texts>
+      </StyledView>
     </Wrapper>
   );
 };

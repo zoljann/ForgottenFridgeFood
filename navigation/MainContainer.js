@@ -39,7 +39,7 @@ const MainContainer = () => (
         headerShown: false,
       })}
       tabBarOptions={{
-        activeTintColor: "#58D2A1",
+        activeTintColor: "#479FEC",
         labelStyle: {
           fontSize: 12,
         },

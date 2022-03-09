@@ -7,6 +7,9 @@ import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
 const Wrapper = styled.View`
   padding: 15% 5% 0 5%;
 `;
+const ProductContainer = styled.View`
+  height: 85%;
+`;
 const Texts = styled.Text``;
 const MenuItems = styled.View`
   align-items: center;
@@ -24,11 +27,13 @@ const ListsScreen = ({ navigation }) => (
         justifyContent: "center",
         marginBottom: 10,
       }}
-      placeholderTextColor={"green"}
-      placeholder={"Search for food"}
+      placeholderTextColor={"#479FEC"}
+      placeholder={"Do i have.."}
     />
-    <Product />
-    <Product />
+    <ProductContainer>
+      <Product />
+      <Product />
+    </ProductContainer>
     <MenuItems>
       <Menu />
     </MenuItems>
