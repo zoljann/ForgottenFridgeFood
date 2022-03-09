@@ -2,6 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import Product from "../components/Product";
 import Menu from "../components/Menu";
+import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
 
 const Wrapper = styled.View`
   padding: 15% 5% 0 5%;
@@ -9,12 +10,23 @@ const Wrapper = styled.View`
 const Texts = styled.Text``;
 const MenuItems = styled.View`
   align-items: center;
-  margin-top: 120%;
 `;
 
 const ListsScreen = ({ navigation }) => (
   <Wrapper>
-    <Texts>ovdje ide search bar za hranu koju imas u frizideru</Texts>
+    <SearchBar
+      inputStyle={{ backgroundColor: "white" }}
+      containerStyle={{
+        backgroundColor: "white",
+        borderWidth: 1,
+        borderRadius: 40,
+        height: 42,
+        justifyContent: "center",
+        marginBottom: 10,
+      }}
+      placeholderTextColor={"green"}
+      placeholder={"Search for food"}
+    />
     <Product />
     <Product />
     <MenuItems>
