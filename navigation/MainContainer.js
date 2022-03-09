@@ -8,6 +8,7 @@ import Icon from "react-native-vector-icons/FontAwesome";
 import ShoppingScreen from "./screens/ShoppingScreen";
 import ProfileScreen from "./screens/ProfileScreen";
 import ListsScreen from "./screens/ListsScreen";
+import WriteFoodScreen from "./screens/WriteFoodScreen";
 
 //Screen names
 const lists = "Lists";
@@ -48,6 +49,16 @@ const MainContainer = () => (
       <Tab.Screen name={lists} component={ListsScreen} />
       <Tab.Screen name={shopping} component={ShoppingScreen} />
       <Tab.Screen name={profile} component={ProfileScreen} />
+      <Tab.Screen
+        options={() => ({
+          tabBarStyle: {
+            display: "none",
+          },
+          tabBarButton: () => null,
+        })}
+        name="WriteFood"
+        component={WriteFoodScreen}
+      />
     </Tab.Navigator>
   </NavigationContainer>
 );
