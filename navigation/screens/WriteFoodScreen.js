@@ -1,6 +1,5 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
 import styled from "styled-components";
 
 const Wrapper = styled.View`
@@ -41,7 +40,7 @@ const CloseButtonText = styled.Text`
 const WriteFoodScreen = () => {
   const navigation = useNavigation();
   const handleAddProduct = () => {
-    console.log("testich");
+    console.log("dodan");
   };
   return (
     <Wrapper>

@@ -19,7 +19,6 @@ const MenuItems = styled.View`
   margin-top: 150%;
 `;
 const ListsScreen = ({ navigation }) => {
-  const route = useRoute();
   return (
     <Wrapper>
       <SearchBar
@@ -35,9 +34,9 @@ const ListsScreen = ({ navigation }) => {
         placeholderTextColor={"#479FEC"}
         placeholder={"Do i have.."}
       />
-      <Texts>{route.params}</Texts>
+      <Texts></Texts>
       <ProductContainer>
-        <Product />
+        <Product foodName="xd" />
       </ProductContainer>
       <MenuItems>
         <Menu />
