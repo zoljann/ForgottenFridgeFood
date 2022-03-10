@@ -4,6 +4,7 @@ import Product from "../components/Product";
 import Menu from "../components/Menu";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
 import { useRoute } from "@react-navigation/native";
+import { TouchableOpacity } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 2% 0 2%;
@@ -34,9 +35,8 @@ const ListsScreen = ({ navigation }) => {
         placeholderTextColor={"#479FEC"}
         placeholder={"Do i have.."}
       />
-      <Texts></Texts>
       <ProductContainer>
-        <Product foodName="xd" />
+        <Product foodName="Milk" foodExpireDate="13.2.2019" />
       </ProductContainer>
       <MenuItems>
         <Menu />

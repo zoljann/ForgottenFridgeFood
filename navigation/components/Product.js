@@ -29,7 +29,7 @@ const StyledImage = styled(Image)`
 const Product = (props) => (
   <Wrapper>
     <FoodName>{props.foodName}</FoodName>
-    <ExpireDate>Do 21.3.2022</ExpireDate>
+    <ExpireDate>{props.foodExpireDate}</ExpireDate>
     <StyledImage source={require("../images/milk.png")} />
   </Wrapper>
 );

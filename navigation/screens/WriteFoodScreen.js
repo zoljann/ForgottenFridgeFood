@@ -1,11 +1,11 @@
 import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import styled from "styled-components";
+import Icon from "react-native-vector-icons/FontAwesome";
 
 const Wrapper = styled.View`
   margin: 10% 5% 10% 5%;
   height: 90%;
-  background-color: gray;
 `;
 const Texts = styled.Text``;
 const AddButton = styled.TouchableOpacity`
@@ -28,13 +28,10 @@ const TextInputStyled = styled.TextInput`
   text-align: center;
   color: ${(props) => props.theme.text.white};
 `;
-const CloseButton = styled.TouchableOpacity`
-  width: 100%;
-`;
-const CloseButtonText = styled.Text`
+const CloseButton = styled(Icon)`
   text-align: right;
-  margin: 0 3% 7% 0;
-  font-size: 30px;
+  font-size: 40px;
+  margin: 2% 2% 0 0;
 `;
 
 const WriteFoodScreen = () => {
@@ -42,16 +39,22 @@ const WriteFoodScreen = () => {
   const handleAddProduct = () => {
     console.log("dodan");
   };
+  const [foodName, setFoodName] = useState("");
+  const [foodExpireDate, setFoodExpireDate] = useState("");
+  const [foodImage, setFoodImage] = useState("");
   return (
     <Wrapper>
       <CloseButton
+        name="remove"
         onPress={() => {
           navigation.navigate("Lists");
         }}
-      >
-        <CloseButtonText>X</CloseButtonText>
-      </CloseButton>
-      <TextInputStyled placeholder="Name" />
+      />
+      <TextInputStyled
+        placeholder="Name"
+        value={foodName}
+        onChangeText={(text) => setFoodName(text)}
+      />
       <AddButton onPress={handleAddProduct}>
         <AddButtonText>Add food</AddButtonText>
       </AddButton>

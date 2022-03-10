@@ -52,6 +52,7 @@ const MainContainer = () => (
       <Tab.Screen
         options={() => ({
           tabBarButton: () => null,
+          tabBarStyle: { display: "none" },
         })}
         name="WriteFood"
         component={WriteFoodScreen}
