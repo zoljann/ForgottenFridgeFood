@@ -21,44 +21,46 @@ const StyledIcons = styled(Icon)`
   color: ${(props) => props.theme.colors.primary};
 `;
 
-const MainContainer = () => (
-  <NavigationContainer>
-    <Tab.Navigator
-      initialRouteName={lists}
-      screenOptions={({ route }) => ({
-        tabBarIcon: () => {
-          let iconName;
-          if (route.name === lists) {
-            iconName = "list";
-          } else if (route.name === shopping) {
-            iconName = "shopping-cart";
-          } else if (route.name === profile) {
-            iconName = "user";
-          }
-          return <StyledIcons name={iconName} />;
-        },
-        headerShown: false,
-      })}
-      tabBarOptions={{
-        activeTintColor: "#479FEC",
-        labelStyle: {
-          fontSize: 12,
-        },
-      }}
-    >
-      <Tab.Screen name={lists} component={ListsScreen} />
-      <Tab.Screen name={shopping} component={ShoppingScreen} />
-      <Tab.Screen name={profile} component={ProfileScreen} />
-      <Tab.Screen
-        options={() => ({
-          tabBarButton: () => null,
-          tabBarStyle: { display: "none" },
+const MainContainer = () => {
+  return (
+    <NavigationContainer>
+      <Tab.Navigator
+        initialRouteName={lists}
+        screenOptions={({ route }) => ({
+          tabBarIcon: () => {
+            let iconName;
+            if (route.name === lists) {
+              iconName = "list";
+            } else if (route.name === shopping) {
+              iconName = "shopping-cart";
+            } else if (route.name === profile) {
+              iconName = "user";
+            }
+            return <StyledIcons name={iconName} />;
+          },
+          headerShown: false,
         })}
-        name="WriteFood"
-        component={WriteFoodScreen}
-      />
-    </Tab.Navigator>
-  </NavigationContainer>
-);
+        tabBarOptions={{
+          activeTintColor: "#479FEC",
+          labelStyle: {
+            fontSize: 12,
+          },
+        }}
+      >
+        <Tab.Screen name={lists} component={ListsScreen} />
+        <Tab.Screen name={shopping} component={ShoppingScreen} />
+        <Tab.Screen name={profile} component={ProfileScreen} />
+        <Tab.Screen
+          options={() => ({
+            tabBarButton: () => null,
+            tabBarStyle: { display: "none" },
+          })}
+          name="WriteFood"
+          component={WriteFoodScreen}
+        />
+      </Tab.Navigator>
+    </NavigationContainer>
+  );
+};
 
 export default MainContainer;

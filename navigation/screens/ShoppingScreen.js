@@ -14,6 +14,7 @@ const TextInputStyled = styled.TextInput`
   width: 100%;
   text-align: center;
   color: ${(props) => props.theme.text.black};
+  font-family: "GothicRegular";
 `;
 const Line = styled.View`
   bottom: 25px;

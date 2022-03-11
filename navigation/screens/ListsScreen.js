@@ -29,6 +29,7 @@ const ListsScreen = ({ navigation }) => {
             height: 42,
             justifyContent: "center",
             marginBottom: 10,
+            fontFamily: "GothicRegular",
           }}
           placeholderTextColor={"#479FEC"}
           placeholder={"Do i have.."}

@@ -16,6 +16,7 @@ const Texts = styled.Text`
   margin: 0 5% 0 5%;
   color: ${(props) => props.theme.text.white};
   font-size: 18px;
+  font-family: "GothicRegular";
 `;
 const StyledIcons = styled(Icon)`
   font-size: 18px;

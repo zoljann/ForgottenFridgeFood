@@ -14,9 +14,11 @@ const Wrapper = styled.View`
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};
   font-size: 22px;
+  font-family: "GothicRegular";
 `;
 const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
+  font-family: "GothicRegular";
 `;
 const StyledImage = styled(Image)`
   position: absolute;

@@ -21,6 +21,7 @@ const AddButton = styled.TouchableOpacity`
 const AddButtonText = styled.Text`
   font-size: 20px;
   color: ${(props) => props.theme.text.white};
+  font-family: "GothicRegular";
 `;
 const TextInputStyled = styled.TextInput`
   margin: 10% 0 10% 0;
@@ -28,6 +29,7 @@ const TextInputStyled = styled.TextInput`
   width: 100%;
   text-align: center;
   color: ${(props) => props.theme.text.black};
+  font-family: "GothicRegular";
 `;
 const CloseButton = styled(Icon)`
   margin-left: 85%;

@@ -18,9 +18,11 @@ const FoodContainer = styled.View``;
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};
   font-size: 22px;
+  font-family: "GothicRegular";
 `;
 const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
+  font-family: "GothicRegular";
 `;
 const FoodCounter = styled.View`
   align-items: center;
@@ -32,6 +34,7 @@ const PlusMinus = styled(Icon)`
 `;
 const Counter = styled.Text`
   font-size: 15px;
+  font-family: "GothicRegular";
 `;
 const DeleteProduct = styled(Icon)`
   color: ${(props) => props.theme.colors.primary};
