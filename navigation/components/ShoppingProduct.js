@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
 
 const Wrapper = styled.View`
-  height: 60px;
+  height: 70px;
   width: 100%;
   flex-direction: row;
   background-color: white;
@@ -17,7 +17,7 @@ const Wrapper = styled.View`
 const FoodContainer = styled.View``;
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};
-  font-size: 20px;
+  font-size: 22px;
 `;
 const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
@@ -28,7 +28,7 @@ const FoodCounter = styled.View`
 `;
 const PlusMinus = styled(Icon)`
   color: ${(props) => props.theme.colors.primary};
-  font-size: 17px;
+  font-size: 22px;
 `;
 const Counter = styled.Text`
   font-size: 15px;

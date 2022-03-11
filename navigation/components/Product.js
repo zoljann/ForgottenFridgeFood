@@ -7,8 +7,9 @@ const Wrapper = styled.View`
   background-color: white;
   border-radius: 15px;
   border: 0.5px solid ${(props) => props.theme.text.gray};
-  padding: 2% 0% 2% 5%;
+  padding: 2% 0% 2% 6%;
   margin-bottom: 10px;
+  justify-content: center;
 `;
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};

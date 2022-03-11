@@ -1,10 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import Product from "../components/Product";
 import Menu from "../components/Menu";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
-import { useRoute } from "@react-navigation/native";
-import { TouchableOpacity } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 2% 0 2%;
