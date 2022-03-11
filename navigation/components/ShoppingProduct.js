@@ -12,6 +12,7 @@ const Wrapper = styled.View`
   padding: 1% 6% 1% 6%;
   justify-content: space-between;
   align-items: center;
+  margin-bottom: 10px;
 `;
 const FoodContainer = styled.View``;
 const FoodName = styled.Text`

@@ -21,11 +21,14 @@ const Line = styled.View`
   border-width: 0.3px;
   border-color: gray;
 `;
+const ShoppingProductContainer = styled.View``;
 const ShoppingScreen = ({ navigation }) => {
   return (
     <Wrapper>
       <TextInputStyled placeholder="Add food" />
       <Line />
+      <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
+      <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
       <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
     </Wrapper>
   );

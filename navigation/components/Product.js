@@ -7,13 +7,12 @@ const Wrapper = styled.View`
   background-color: white;
   border-radius: 15px;
   border: 0.5px solid ${(props) => props.theme.text.gray};
-  padding: 5%;
+  padding: 2% 0% 2% 5%;
   margin-bottom: 10px;
-  //add box shadow
 `;
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};
-  font-size: 15px;
+  font-size: 22px;
 `;
 const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
