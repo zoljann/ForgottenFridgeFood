@@ -6,13 +6,19 @@ require("./Product");
 app.use(bodyParser.json());
 
 const Product = mongoose.model("product");
-
 const mongoUri =
   "mongodb+srv://nedim:nedim123@cluster0.alhdf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority";
 
 app.get("/", (request, response) => {
-  response.send("welcome to nodejs");
+  Product.find({})
+    .then((data) => {
+      response.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
+
 app.post("/send-data", (request, response) => {
   //sending all data to model we create earlier
   const product = new Product({
