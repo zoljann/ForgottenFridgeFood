@@ -1,8 +1,9 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import Product from "../components/Product";
 import Menu from "../components/Menu";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
+import { FlatList, ActivityIndicator } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 2% 0 2%;
@@ -17,6 +18,28 @@ const MenuItems = styled.View`
 `;
 
 const ListsScreen = ({ navigation }) => {
+  const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    //fetching one time, set by []
+    fetch("http://10.0.2.2:3000/")
+      .then((response) => response.json())
+      .then((results) => {
+        setData(results);
+        setLoading(false);
+      });
+  }, []);
+
+  const renderItems = (item) => {
+    return (
+      <ProductContainer>
+        <Product
+          foodName={item.foodName}
+          foodExpireDate={item.foodExpireDate}
+        />
+      </ProductContainer>
+    );
+  };
   return (
     <Wrapper>
       <Container>
@@ -34,11 +57,17 @@ const ListsScreen = ({ navigation }) => {
           placeholderTextColor={"#479FEC"}
           placeholder={"Do i have.."}
         />
-        <ProductContainer>
-          <Product foodName="Milk" foodExpireDate="13.2.2019" />
-          <Product foodName="Eggs" foodExpireDate="13.2.2019" />
-          <Product foodName="Pizza" foodExpireDate="13.2.2019" />
-        </ProductContainer>
+        {loading ? (
+          <ActivityIndicator size="large" color="#479FEC" />
+        ) : (
+          <FlatList
+            data={data}
+            renderItem={({ item }) => {
+              return renderItems(item);
+            }}
+            keyExtractor={(item) => item._id}
+          />
+        )}
       </Container>
       <MenuItems>
         <Menu />

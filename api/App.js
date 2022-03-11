@@ -30,7 +30,6 @@ app.post("/send-data", (request, response) => {
     .save()
     .then((data) => {
       console.log(data);
-      response.send("success");
     })
     .catch((err) => {
       console.log(err);

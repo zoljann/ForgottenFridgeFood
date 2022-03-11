@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
 import React, { useState } from "react";
 import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
+import { Alert } from "react-native";
 
 const Wrapper = styled.View`
   margin: 10% 5% 10% 5%;
@@ -43,14 +43,31 @@ const Line = styled.View`
   border-color: gray;
 `;
 
-const WriteFoodScreen = () => {
-  const navigation = useNavigation();
-  const handleAddProduct = () => {
-    console.log("dodan");
-  };
+const WriteFoodScreen = ({ navigation }) => {
   const [foodName, setFoodName] = useState("");
   const [foodExpireDate, setFoodExpireDate] = useState("");
   const [foodImage, setFoodImage] = useState("");
+
+  const handleAddProduct = () => {
+    fetch("http://10.0.2.2:3000/send-data", {
+      method: "post",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      //if names are same we dont have to: foodName: foodName
+      body: JSON.stringify({
+        foodName,
+        foodExpireDate,
+        foodImage,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        Alert.alert(`${data.foodName} added successfuly`);
+        navigation.navigate("Lists");
+      });
+  };
+
   return (
     <Wrapper>
       <CloseButton
@@ -65,7 +82,7 @@ const WriteFoodScreen = () => {
         onChangeText={(text) => setFoodName(text)}
       />
       <Line />
-      <AddButton onPress={handleAddProduct}>
+      <AddButton onPress={() => handleAddProduct()}>
         <AddButtonText>Add food</AddButtonText>
       </AddButton>
     </Wrapper>

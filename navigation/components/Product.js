@@ -20,19 +20,12 @@ const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
   font-family: "GothicRegular";
 `;
-const StyledImage = styled(Image)`
-  position: absolute;
-  width: 60px;
-  height: 80px;
-  margin-left: 80%;
-`;
 
 //dodati checkmark da se moze izbrisati proizvod
 const Product = (props) => (
   <Wrapper>
     <FoodName>{props.foodName}</FoodName>
     <ExpireDate>{props.foodExpireDate}</ExpireDate>
-    <StyledImage source={require("../images/milk.png")} />
   </Wrapper>
 );
 export default Product;
