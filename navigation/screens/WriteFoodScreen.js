@@ -26,7 +26,7 @@ const TextInputStyled = styled.TextInput`
   font-size: 25px;
   width: 100%;
   text-align: center;
-  color: ${(props) => props.theme.text.white};
+  color: ${(props) => props.theme.text.black};
 `;
 const CloseButton = styled(Icon)`
   text-align: right;

@@ -1,18 +1,32 @@
 import React from "react";
-import { AsyncStorage } from "react-native";
-import { SearchBar } from "react-native-elements/dist/searchbar/SearchBar";
 import styled from "styled-components";
+import ShoppingProduct from "../components/ShoppingProduct";
 
 const Wrapper = styled.View`
   padding: 15% 5% 0 5%;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
 `;
-const Texts = styled.Text``;
-
+const TextInputStyled = styled.TextInput`
+  margin: 10% 0 10% 0;
+  font-size: 25px;
+  width: 100%;
+  text-align: center;
+  color: ${(props) => props.theme.text.black};
+`;
+const Line = styled.View`
+  bottom: 25px;
+  width: 50%;
+  border-width: 0.3px;
+  border-color: gray;
+`;
 const ShoppingScreen = ({ navigation }) => {
   return (
     <Wrapper>
-      <SearchBar placeholder="cao" />
-      <Texts></Texts>
+      <TextInputStyled placeholder="Add food" />
+      <Line />
+      <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
     </Wrapper>
   );
 };

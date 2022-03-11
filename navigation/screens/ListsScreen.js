@@ -37,6 +37,8 @@ const ListsScreen = ({ navigation }) => {
       />
       <ProductContainer>
         <Product foodName="Milk" foodExpireDate="13.2.2019" />
+        <Product foodName="Eggs" foodExpireDate="13.2.2019" />
+        <Product foodName="Pizza" foodExpireDate="13.2.2019" />
       </ProductContainer>
       <MenuItems>
         <Menu />
