@@ -25,8 +25,9 @@ const ListsScreen = ({ navigation }) => {
     fetchData();
   }, []); //see if i can pass [] to render only once or render every time some action happens?how much cost
 
+  let url = "http://10.0.2.2:3000/"; //ngrok for remote connection -> http://10.0.2.2:3000/ PC
   const fetchData = () => {
-    fetch("https://72e9-77-77-222-142.ngrok.io/") //ngrok for remote connection -> http://10.0.2.2:3000/ PC
+    fetch(url)
       .then((response) => response.json())
       .then((results) => {
         setData(results);

@@ -8,7 +8,6 @@ const Wrapper = styled.View`
   height: 90%;
   align-items: center;
 `;
-const Texts = styled.Text``;
 const AddButton = styled.TouchableOpacity`
   margin: 0 auto 0 auto;
   width: 60%;
@@ -59,7 +58,15 @@ const WriteFoodScreen = ({ navigation }) => {
         foodExpireDate,
         foodImage,
       }),
-    });
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        Alert.alert(`Added ${data.foodName} in your fridge`);
+        navigation.navigate("Lists");
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
   };
 
   return (
@@ -76,7 +83,7 @@ const WriteFoodScreen = ({ navigation }) => {
         onChangeText={(text) => setFoodName(text)}
       />
       <Line />
-      <AddButton onPress={() => handleAddProduct()}>
+      <AddButton onPress={handleAddProduct}>
         <AddButtonText>Add food</AddButtonText>
       </AddButton>
     </Wrapper>

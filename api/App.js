@@ -29,18 +29,17 @@ app.post("/send-data", (request, response) => {
   product
     .save()
     .then((data) => {
-      console.log(data);
+      response.status(200).json(data);
+      console.log("Data stored on MongoDB: ", data);
     })
-    .catch((err) => {
-      console.log(err);
-    });
+    .catch((err) => response.status(400).json());
 });
 
 app.post("/delete", (request, response) => {
   Product.findByIdAndRemove(request.body.id)
     .then((data) => {
-      console.log(data);
-      response.send("deleted");
+      console.log("Data deleted from MongoDB: ", data);
+      response.send(data);
     })
     .catch((err) => {
       console.log(err);
