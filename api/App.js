@@ -53,12 +53,12 @@ mongoose.connect(mongoUri, {
   useUnifiedTopology: true,
 });
 mongoose.connection.on("connected", () => {
-  console.log("konektovano na mongose");
+  console.log("Connected on mongoose");
 });
 mongoose.connection.on("error", (err) => {
   console.log("error", err);
 });
 
 app.listen(3000, () => {
-  console.log("server running");
+  console.log("Server running..");
 });

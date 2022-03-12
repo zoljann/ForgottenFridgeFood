@@ -50,25 +50,16 @@ const WriteFoodScreen = ({ navigation }) => {
 
   const handleAddProduct = () => {
     fetch("http://10.0.2.2:3000/send-data", {
-      method: "post",
+      method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      //if names are same we dont have to: foodName: foodName
       body: JSON.stringify({
         foodName,
         foodExpireDate,
         foodImage,
       }),
-    })
-      .then((response) => response.json())
-      .then((data) => {
-        Alert.alert(`${data.foodName} added successfuly`);
-        navigation.navigate("Lists");
-      })
-      .catch((err) => {
-        Alert.alert(err, "Something went wrong");
-      });
+    });
   };
 
   return (
