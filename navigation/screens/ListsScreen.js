@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Product from "../components/Product";
 import Menu from "../components/Menu";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
-import { FlatList, ActivityIndicator } from "react-native";
+import { FlatList, ActivityIndicator, Alert } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 2% 0 2%;
@@ -20,15 +20,22 @@ const MenuItems = styled.View`
 const ListsScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(true);
+
   useEffect(() => {
-    //fetching one time, set by []
-    fetch("http://10.0.2.2:3000/")
+    fetchData();
+  }, []); //see if i can pass [] to render only once or render every time some action happens?how much cost
+
+  const fetchData = () => {
+    fetch("http://10.0.2.2:3000/") //ngrok for remote connection -> http://10.0.2.2:3000/ PC
       .then((response) => response.json())
       .then((results) => {
         setData(results);
         setLoading(false);
+      })
+      .catch((err) => {
+        Alert.alert("Something went wrong");
       });
-  }, []);
+  };
 
   const renderItems = (item) => {
     return (
@@ -66,6 +73,8 @@ const ListsScreen = ({ navigation }) => {
               return renderItems(item);
             }}
             keyExtractor={(item) => item._id}
+            onRefresh={() => fetchData()} //on pulldown refresh data
+            refreshing={loading}
           />
         )}
       </Container>

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Image } from "react-native";
 
 const Wrapper = styled.View`
   height: 80px;
@@ -10,22 +9,34 @@ const Wrapper = styled.View`
   padding: 2% 0% 2% 6%;
   margin-bottom: 10px;
   justify-content: center;
+  text-align: center;
 `;
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};
-  font-size: 22px;
+  font-size: 30px;
   font-family: "GothicRegular";
+  justify-content: center;
+  text-align: center;
+`;
+const ExpireDateText = styled.Text`
+  color: ${(props) => props.theme.text.black};
+  font-family: "GothicRegular";
+  position: absolute;
+  padding-left: 5%;
+  font-size: 16px;
 `;
 const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
   font-family: "GothicRegular";
 `;
 
-//dodati checkmark da se moze izbrisati proizvod
 const Product = (props) => (
   <Wrapper>
     <FoodName>{props.foodName}</FoodName>
-    <ExpireDate>{props.foodExpireDate}</ExpireDate>
+    <ExpireDateText>
+      Expire date {"\n"}
+      <ExpireDate>{props.foodExpireDate}</ExpireDate>
+    </ExpireDateText>
   </Wrapper>
 );
 export default Product;

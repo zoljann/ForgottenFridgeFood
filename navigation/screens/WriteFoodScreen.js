@@ -65,6 +65,9 @@ const WriteFoodScreen = ({ navigation }) => {
       .then((data) => {
         Alert.alert(`${data.foodName} added successfuly`);
         navigation.navigate("Lists");
+      })
+      .catch((err) => {
+        Alert.alert(err, "Something went wrong");
       });
   };
 

@@ -10,8 +10,7 @@ const Texts = styled.Text``;
 
 const ProfileScreen = ({ navigation }) => (
   <Wrapper>
-    <Texts>ovdje kao postavke profila</Texts>
-    <Texts>xd</Texts>
+    <Texts>propala</Texts>
   </Wrapper>
 );
 
