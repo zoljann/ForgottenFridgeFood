@@ -7,8 +7,8 @@ const Wrapper = styled.View`
   background-color: white;
   border-radius: 15px;
   border: 0.5px solid ${(props) => props.theme.text.gray};
-  padding: 2% 0% 2% 6%;
   margin-bottom: 10px;
+  padding: 0% 4% 0% 4%;
   justify-content: space-between;
   flex-direction: row;
   align-items: center;
@@ -22,7 +22,7 @@ const FoodName = styled.Text`
 const ExpireDateText = styled.Text`
   color: ${(props) => props.theme.text.black};
   font-family: "GothicRegular";
-  font-size: 16px;
+  font-size: 17px;
 `;
 const ExpireDate = styled.Text`
   color: ${(props) => props.theme.text.gray};
@@ -30,7 +30,6 @@ const ExpireDate = styled.Text`
 `;
 const FoodCounter = styled.View`
   align-items: center;
-  margin-right: 6%;
 `;
 const PlusMinus = styled(Icon)`
   color: ${(props) => props.theme.colors.primary};
@@ -50,7 +49,7 @@ const Product = (props) => {
       <FoodName>{props.foodName}</FoodName>
       <FoodCounter>
         <PlusMinus name="plus" />
-        <Counter>0</Counter>
+        <Counter>{props.foodCounter}</Counter>
         <PlusMinus name="minus" />
       </FoodCounter>
     </Wrapper>

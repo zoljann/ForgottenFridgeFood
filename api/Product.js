@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const ProductSchema = new mongoose.Schema({
   foodName: String,
   foodExpireDate: String,
-  foodImage: String,
+  foodCounter: String,
 });
 
 mongoose.model("product", ProductSchema); //pass this schema

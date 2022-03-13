@@ -9,7 +9,7 @@ const Wrapper = styled.View`
   background-color: white;
   border-radius: 15px;
   border: 0.5px solid ${(props) => props.theme.text.gray};
-  padding: 1% 6% 1% 6%;
+  padding: 0% 4% 0% 4%;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 10px;
@@ -17,7 +17,7 @@ const Wrapper = styled.View`
 const FoodContainer = styled.View``;
 const FoodName = styled.Text`
   color: ${(props) => props.theme.text.black};
-  font-size: 22px;
+  font-size: 26px;
   font-family: "GothicRegular";
 `;
 const ExpireDate = styled.Text`
@@ -33,12 +33,12 @@ const PlusMinus = styled(Icon)`
   font-size: 22px;
 `;
 const Counter = styled.Text`
-  font-size: 15px;
+  font-size: 18px;
   font-family: "GothicRegular";
 `;
 const DeleteProduct = styled(Icon)`
   color: ${(props) => props.theme.colors.primary};
-  font-size: 30px;
+  font-size: 32px;
 `;
 
 const ShoppingProduct = (props) => {
