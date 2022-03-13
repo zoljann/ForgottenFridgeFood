@@ -45,7 +45,7 @@ const Line = styled.View`
 const WriteFoodScreen = ({ navigation }) => {
   const [foodName, setFoodName] = useState("");
   const [foodExpireDate, setFoodExpireDate] = useState("");
-  const [foodImage, setFoodImage] = useState("");
+  const [foodCounter, setFoodCounter] = useState(0);
 
   const handleAddProduct = () => {
     fetch("http://10.0.2.2:3000/send-data", {
@@ -56,7 +56,7 @@ const WriteFoodScreen = ({ navigation }) => {
       body: JSON.stringify({
         foodName,
         foodExpireDate,
-        foodImage,
+        foodCounter,
       }),
     })
       .then((response) => response.json())
