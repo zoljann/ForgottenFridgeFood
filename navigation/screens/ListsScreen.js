@@ -43,7 +43,8 @@ const ListsScreen = ({ navigation }) => {
       <ProductContainer>
         <Product
           foodName={item.foodName}
-          foodExpireDate={item.foodExpireDate}
+          date={item.date}
+          foodCounter={item.foodCounter}
         />
       </ProductContainer>
     );
@@ -64,11 +65,6 @@ const ListsScreen = ({ navigation }) => {
           }}
           placeholderTextColor={"#479FEC"}
           placeholder={"Do i have.."}
-        />
-        <Product
-          foodName={"Eggggg"}
-          foodExpireDate={"21.2.2019"}
-          foodCounter={6}
         />
         {loading ? (
           <ActivityIndicator size="large" color="#479FEC" />

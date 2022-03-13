@@ -44,7 +44,7 @@ const Product = (props) => {
     <Wrapper>
       <ExpireDateText>
         Expire date {"\n"}
-        <ExpireDate>{props.foodExpireDate}</ExpireDate>
+        <ExpireDate>{props.date}</ExpireDate>
       </ExpireDateText>
       <FoodName>{props.foodName}</FoodName>
       <FoodCounter>

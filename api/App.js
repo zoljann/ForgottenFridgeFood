@@ -23,8 +23,8 @@ app.post("/send-data", (request, response) => {
   //sending all data to model we create earlier
   const product = new Product({
     foodName: request.body.foodName,
-    foodExpireDate: request.body.foodExpireDate,
-    foodImage: request.body.foodImage,
+    date: request.body.date,
+    foodCounter: request.body.foodCounter,
   });
   product
     .save()
