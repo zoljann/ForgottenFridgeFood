@@ -65,6 +65,11 @@ const TextStyled2 = styled.Text`
   margin: 10% 0% 2% 0%;
   font-size: 20px;
 `;
+const TextStyled3 = styled.Text`
+  font-family: "GothicRegular";
+  font-size: 15px;
+  text-align: center;
+`;
 const FoodCounter = styled.View`
   align-items: center;
 `;
@@ -108,7 +113,7 @@ const WriteFoodScreen = ({ navigation }) => {
   //handling dateTimePicker
   const onChange = (event, selectedDate) => {
     const currentDate = selectedDate;
-    setDate(currentDate);
+    setDate(currentDate.toDateString());
   };
   const showMode = (currentMode) => {
     DateTimePickerAndroid.open({
@@ -148,6 +153,9 @@ const WriteFoodScreen = ({ navigation }) => {
       <ButtonStyled onPress={showDatepicker}>
         <ButtonStyledText>Add date</ButtonStyledText>
       </ButtonStyled>
+      <TextStyled3>
+        Selected date: {"\n"} {date.toLocaleString()}
+      </TextStyled3>
       <TextStyled2>Set quantity</TextStyled2>
       <FoodCounter>
         <PlusMinus name="plus" onPress={handlePlus} />

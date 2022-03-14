@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 //which data we are gonna post
 const ProductSchema = new mongoose.Schema({
   foodName: String,
-  date: Date,
+  date: String,
   foodCounter: Number,
 });
 
