@@ -14,9 +14,12 @@ const Wrapper = styled.View`
   align-items: center;
 `;
 const FoodName = styled.Text`
+  text-align: center;
+  width: 48%;
   color: ${(props) => props.theme.text.black};
   font-size: 26px;
   font-family: "GothicRegular";
+  margin-right: 10%;
 `;
 const ExpireDateText = styled.Text`
   color: ${(props) => props.theme.text.black};
@@ -28,8 +31,9 @@ const ExpireDate = styled.Text`
   font-family: "GothicRegular";
 `;
 const FoodCounter = styled.View`
+  position: absolute;
   align-items: center;
-  margin-right: 15%;
+  margin-left: 80%;
 `;
 const PlusMinus = styled(Icon)`
   color: ${(props) => props.theme.colors.primary};
@@ -80,12 +84,15 @@ const Product = (props) => {
         Expire date {"\n"}
         <ExpireDate>{props.date}</ExpireDate>
       </ExpireDateText>
-      <FoodName>{props.foodName}</FoodName>
+
       <FoodCounter>
         <PlusMinus name="plus" onPress={handlePlus} />
         <Counter>{props.foodCounter}</Counter>
         <PlusMinus name="minus" onPress={handleMinus} />
       </FoodCounter>
+
+      <FoodName>{props.foodName}</FoodName>
+
       <DeleteProduct name="trash" onPress={() => handleDeleteProduct()} />
     </Wrapper>
   );
