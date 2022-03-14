@@ -49,19 +49,10 @@ const DeleteProduct = styled(Icon)`
 `;
 
 const Product = (props) => {
-  const [foodCounter, setFoodCounter] = useState(0);
-  const handlePlus = () => {
-    if (foodCounter > 0) setFoodCounter(foodCounter + 1);
-    handleUpdateProduct();
-  };
-  const handleMinus = () => {
-    if (foodCounter > 0) setFoodCounter(foodCounter - 1); //staviti uslov da quantity ne moze biti = 0
-    handleUpdateProduct();
-  };
+  const [foodCounter, setFoodCounter] = useState(props.foodCounter);
 
   //handle deleting product
   const handleDeleteProduct = () => {
-    console.log(foodCounter);
     fetch("http://10.0.2.2:3000/delete", {
       method: "POST",
       headers: {
@@ -82,6 +73,8 @@ const Product = (props) => {
 
   //handle updating product
   const handleUpdateProduct = () => {
+    console.log("Na update funkciji:", foodCounter);
+    console.log("yea");
     fetch("http://10.0.2.2:3000/update", {
       method: "POST",
       headers: {
@@ -109,9 +102,21 @@ const Product = (props) => {
       </ExpireDateText>
 
       <FoodCounter>
-        <PlusMinus name="plus" onPress={() => handlePlus()} />
+        <PlusMinus
+          name="plus"
+          onPress={() => {
+            setFoodCounter(foodCounter + 1);
+            handleUpdateProduct();
+          }}
+        />
         <Counter>{props.foodCounter}</Counter>
-        <PlusMinus name="minus" onPress={() => handleMinus()} />
+        <PlusMinus
+          name="minus"
+          onPress={() => {
+            setFoodCounter(foodCounter - 1);
+            handleUpdateProduct();
+          }}
+        />
       </FoodCounter>
 
       <FoodName>{props.foodName}</FoodName>
