@@ -26,6 +26,7 @@ const ListsScreen = ({ navigation }) => {
   }); //see if i can pass [] to render only once or render every time some action happens?how much cost
 
   let url = "http://10.0.2.2:3000/"; //ngrok for remote connection -> http://10.0.2.2:3000/ PC
+
   const fetchData = () => {
     fetch(url)
       .then((response) => response.json())
@@ -42,6 +43,7 @@ const ListsScreen = ({ navigation }) => {
     return (
       <ProductContainer>
         <Product
+          id={item._id}
           foodName={item.foodName}
           date={item.date}
           foodCounter={item.foodCounter}

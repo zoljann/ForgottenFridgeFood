@@ -154,7 +154,8 @@ const WriteFoodScreen = ({ navigation }) => {
         <ButtonStyledText>Add date</ButtonStyledText>
       </ButtonStyled>
       <TextStyled3>
-        Selected date: {"\n"} {date.toLocaleString()}
+        Selected date: {"\n"} dodaje samo 1 proizvod na drugi kresuje
+        {date.toLocaleDateString()}
       </TextStyled3>
       <TextStyled2>Set quantity</TextStyled2>
       <FoodCounter>

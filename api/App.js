@@ -19,8 +19,8 @@ app.get("/", (request, response) => {
     });
 });
 
+//handle sending data
 app.post("/send-data", (request, response) => {
-  //sending all data to model we create earlier
   const product = new Product({
     foodName: request.body.foodName,
     date: request.body.date,
@@ -30,15 +30,26 @@ app.post("/send-data", (request, response) => {
     .save()
     .then((data) => {
       response.status(200).json(data);
-      console.log("Data stored on MongoDB: ", data);
     })
     .catch((err) => response.status(400).json());
 });
 
+//handle deleting data
 app.post("/delete", (request, response) => {
   Product.findByIdAndRemove(request.body.id)
     .then((data) => {
-      console.log("Data deleted from MongoDB: ", data);
+      response.send(data);
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+app.post("/update", (request, response) => {
+  Product.findByIdAndUpdate(request.body.id, {
+    foodCounter: request.body.foodCounter,
+  })
+    .then((data) => {
       response.send(data);
     })
     .catch((err) => {
