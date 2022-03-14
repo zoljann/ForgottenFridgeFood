@@ -65,11 +65,6 @@ const TextStyled2 = styled.Text`
   margin: 10% 0% 2% 0%;
   font-size: 20px;
 `;
-const TextStyled3 = styled.Text`
-  font-family: "GothicRegular";
-  font-size: 15px;
-  text-align: center;
-`;
 const FoodCounter = styled.View`
   align-items: center;
 `;
@@ -85,6 +80,8 @@ const Counter = styled.Text`
 const WriteFoodScreen = ({ navigation }) => {
   const [foodName, setFoodName] = useState("");
   const [date, setDate] = useState(new Date());
+  //added date2 to remove time from display
+  const [date2, setDate2] = useState(new Date());
   const [foodCounter, setFoodCounter] = useState(0);
 
   //handle adding product to database
@@ -106,7 +103,7 @@ const WriteFoodScreen = ({ navigation }) => {
         navigation.navigate("Lists");
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.log("Error:", error);
       });
   };
 
@@ -115,19 +112,14 @@ const WriteFoodScreen = ({ navigation }) => {
     const currentDate = selectedDate;
     setDate(currentDate.toDateString());
   };
-  const showMode = (currentMode) => {
+  const showDatepicker = () => {
     DateTimePickerAndroid.open({
-      value: date,
+      value: date2,
       onChange,
-      mode: date,
-      is24Hour: true,
     });
   };
-  const showDatepicker = () => {
-    showMode("date");
-  };
 
-  //handling quantity
+  //handling foodCounter
   const handlePlus = () => {
     setFoodCounter(foodCounter + 1);
   };
@@ -150,20 +142,17 @@ const WriteFoodScreen = ({ navigation }) => {
       />
       <Line />
       <TextStyled>Set expire date</TextStyled>
-      <ButtonStyled onPress={showDatepicker}>
+      <ButtonStyled onPress={() => showDatepicker()}>
         <ButtonStyledText>Add date</ButtonStyledText>
       </ButtonStyled>
-      <TextStyled3>
-        Selected date: {"\n"} dodaje samo 1 proizvod na drugi kresuje
-        {date.toLocaleDateString()}
-      </TextStyled3>
+
       <TextStyled2>Set quantity</TextStyled2>
       <FoodCounter>
         <PlusMinus name="plus" onPress={handlePlus} />
         <Counter>{foodCounter}</Counter>
         <PlusMinus name="minus" onPress={handleMinus} />
       </FoodCounter>
-      <AddButton onPress={handleAddProduct}>
+      <AddButton onPress={() => handleAddProduct()}>
         <AddButtonText>Finish adding food</AddButtonText>
       </AddButton>
     </Wrapper>

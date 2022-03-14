@@ -48,7 +48,6 @@ const Product = (props) => {
   const [foodCounter, setFoodCounter] = useState(0);
   const handlePlus = () => {
     setFoodCounter(foodCounter + 1); //vraca mi ID koji sad samo trebam preko ovog ID obrisati
-    console.log("PLUSICH", props.id);
   };
   const handleMinus = () => {
     if (foodCounter > 0) setFoodCounter(foodCounter - 1);
