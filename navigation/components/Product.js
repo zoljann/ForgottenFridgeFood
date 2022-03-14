@@ -51,15 +51,17 @@ const DeleteProduct = styled(Icon)`
 const Product = (props) => {
   const [foodCounter, setFoodCounter] = useState(0);
   const handlePlus = () => {
-    setFoodCounter(foodCounter + 1); //vraca mi ID koji sad samo trebam preko ovog ID obrisati
+    if (foodCounter > 0) setFoodCounter(foodCounter + 1);
+    handleUpdateProduct();
   };
   const handleMinus = () => {
-    if (foodCounter > 0) setFoodCounter(foodCounter - 1);
-    console.log("minush");
+    if (foodCounter > 0) setFoodCounter(foodCounter - 1); //staviti uslov da quantity ne moze biti = 0
+    handleUpdateProduct();
   };
 
   //handle deleting product
   const handleDeleteProduct = () => {
+    console.log(foodCounter);
     fetch("http://10.0.2.2:3000/delete", {
       method: "POST",
       headers: {
@@ -78,6 +80,27 @@ const Product = (props) => {
       });
   };
 
+  //handle updating product
+  const handleUpdateProduct = () => {
+    fetch("http://10.0.2.2:3000/update", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        id: props.id,
+        foodCounter,
+      }),
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        console.log("Update product: ", data);
+      })
+      .catch((error) => {
+        console.error("Error:", error);
+      });
+  };
+
   return (
     <Wrapper>
       <ExpireDateText>
@@ -86,9 +109,9 @@ const Product = (props) => {
       </ExpireDateText>
 
       <FoodCounter>
-        <PlusMinus name="plus" onPress={handlePlus} />
+        <PlusMinus name="plus" onPress={() => handlePlus()} />
         <Counter>{props.foodCounter}</Counter>
-        <PlusMinus name="minus" onPress={handleMinus} />
+        <PlusMinus name="minus" onPress={() => handleMinus()} />
       </FoodCounter>
 
       <FoodName>{props.foodName}</FoodName>
