@@ -28,9 +28,9 @@ const ShoppingScreen = ({ navigation }) => {
     <Wrapper>
       <TextInputStyled placeholder="Add food" />
       <Line />
-      <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
-      <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
-      <ShoppingProduct foodName="Eggs" foodExpireDate="You have 1 in stock" />
+      <ShoppingProduct foodName="Eggs" />
+      <ShoppingProduct foodName="Milk" />
+      <ShoppingProduct foodName="Cheese" />
     </Wrapper>
   );
 };

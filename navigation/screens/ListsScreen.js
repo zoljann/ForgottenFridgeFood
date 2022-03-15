@@ -25,7 +25,7 @@ const ListsScreen = ({ navigation }) => {
     fetchData();
   }); //see if i can pass [] to render only once or render every time some action happens?how much cost
 
-  let url = "http://10.0.2.2:3000/"; //ngrok for remote connection -> http://10.0.2.2:3000/ PC
+  let url = "http://10.0.2.2:3000/";
 
   const fetchData = () => {
     fetch(url)
@@ -34,8 +34,8 @@ const ListsScreen = ({ navigation }) => {
         setData(results);
         setLoading(false);
       })
-      .catch((err) => {
-        Alert.alert(err, "Something went wrong");
+      .catch((error) => {
+        console.log("Error on fetching", error.message);
       });
   };
 

@@ -67,14 +67,13 @@ const Product = (props) => {
         console.log("Deleted product: ", data);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error:", error.message);
       });
   };
 
   //handle updating product
   const handleUpdateProduct = () => {
     console.log("Na update funkciji:", foodCounter);
-    console.log("yea");
     fetch("http://10.0.2.2:3000/update", {
       method: "POST",
       headers: {
@@ -90,7 +89,7 @@ const Product = (props) => {
         console.log("Update product: ", data);
       })
       .catch((error) => {
-        console.error("Error:", error);
+        console.error("Error:", error.message);
       });
   };
 
