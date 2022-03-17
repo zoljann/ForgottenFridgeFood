@@ -23,10 +23,9 @@ const ListsScreen = ({ navigation }) => {
 
   useEffect(() => {
     fetchData();
-  }); //see if i can pass [] to render only once or render every time some action happens?how much cost
+  });
 
   let url = "http://10.0.2.2:3000/";
-
   const fetchData = () => {
     fetch(url)
       .then((response) => response.json())

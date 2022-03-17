@@ -6,14 +6,14 @@ import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
 //Screens
 import ShoppingScreen from "./screens/ShoppingScreen";
-import ProfileScreen from "./screens/ProfileScreen";
+import ImpactScreen from "./screens/ImpactScreen";
 import ListsScreen from "./screens/ListsScreen";
 import WriteFoodScreen from "./screens/WriteFoodScreen";
 
 //Screen names
 const lists = "Lists";
 const shopping = "Shopping";
-const profile = "Profile";
+const impact = "Impact";
 const Tab = createBottomTabNavigator();
 
 const StyledIcons = styled(Icon)`
@@ -33,8 +33,8 @@ const MainContainer = () => {
               iconName = "list";
             } else if (route.name === shopping) {
               iconName = "shopping-cart";
-            } else if (route.name === profile) {
-              iconName = "user";
+            } else if (route.name === impact) {
+              iconName = "globe";
             }
             return <StyledIcons name={iconName} />;
           },
@@ -49,7 +49,7 @@ const MainContainer = () => {
       >
         <Tab.Screen name={lists} component={ListsScreen} />
         <Tab.Screen name={shopping} component={ShoppingScreen} />
-        <Tab.Screen name={profile} component={ProfileScreen} />
+        <Tab.Screen name={impact} component={ImpactScreen} />
         <Tab.Screen
           options={() => ({
             tabBarButton: () => null,
