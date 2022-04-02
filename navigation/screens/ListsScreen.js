@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Product from "../components/Product";
 import Menu from "../components/Menu";
 import SearchBar from "react-native-elements/dist/searchbar/SearchBar-default";
-import { FlatList, ActivityIndicator, Alert } from "react-native";
+import { FlatList, ActivityIndicator } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 2% 0 2%;
@@ -19,11 +19,13 @@ const MenuItems = styled.View`
 
 const ListsScreen = ({ navigation }) => {
   const [data, setData] = useState([]);
+  const [filter, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState("");
 
   useEffect(() => {
     fetchData();
-  });
+  }, []);
 
   let url = "http://10.0.2.2:3000/";
   const fetchData = () => {
@@ -31,6 +33,7 @@ const ListsScreen = ({ navigation }) => {
       .then((response) => response.json())
       .then((results) => {
         setData(results);
+        setFilteredData(results);
         setLoading(false);
       })
       .catch((error) => {
@@ -51,6 +54,22 @@ const ListsScreen = ({ navigation }) => {
     );
   };
 
+  const searchFilter = (text) => {
+    if (text) {
+      const newData = data.filter((item) => {
+        const itemData = item.foodName
+          ? item.foodName.toUpperCase()
+          : "".toUpperCase();
+        const textData = text.toUpperCase();
+        return itemData.indexOf(textData) > -1;
+      });
+      setFilteredData(newData);
+      setSearch(text);
+    } else {
+      setFilteredData(data);
+    }
+  };
+
   return (
     <Wrapper>
       <Container>
@@ -67,12 +86,14 @@ const ListsScreen = ({ navigation }) => {
           }}
           placeholderTextColor={"#479FEC"}
           placeholder={"Do i have.."}
+          value={search}
+          onChangeText={(text) => searchFilter(text)}
         />
         {loading ? (
           <ActivityIndicator size="large" color="#479FEC" />
         ) : (
           <FlatList
-            data={data}
+            data={filter}
             renderItem={({ item }) => {
               return renderItems(item);
             }}
