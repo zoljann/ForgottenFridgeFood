@@ -2,20 +2,20 @@ import React from "react";
 import styled from "styled-components";
 import Icon from "react-native-vector-icons/FontAwesome";
 import { useNavigation } from "@react-navigation/native";
+import { Alert } from "react-native";
 
 const Wrapper = styled.View`
-  height: 35px;
-  width: 80%;
+  height: 40px;
+  width: 50%;
   background-color: ${(props) => props.theme.colors.primary};
-  border-radius: 50px;
+  border-radius: 45px;
   justify-content: space-between;
-  align-items: center;
   flex-direction: row;
 `;
 const Texts = styled.Text`
   margin: 0 5% 0 5%;
   color: ${(props) => props.theme.text.white};
-  font-size: 18px;
+  font-size: 20px;
   font-family: "GothicRegular";
 `;
 const StyledIcons = styled(Icon)`
@@ -39,10 +39,6 @@ const Menu = () => {
       <MenuButton>
         <StyledIcons name={"camera"} />
         <Texts>Scan</Texts>
-      </MenuButton>
-      <MenuButton>
-        <StyledIcons name={"sort"} />
-        <Texts>Sort</Texts>
       </MenuButton>
     </Wrapper>
   );

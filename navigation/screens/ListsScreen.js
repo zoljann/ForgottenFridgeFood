@@ -9,7 +9,7 @@ const Wrapper = styled.View`
   padding: 15% 2% 0 2%;
 `;
 const Container = styled.View`
-  height: 93%;
+  height: 92%;
 `;
 const ProductContainer = styled.View``;
 const MenuItems = styled.View`
