@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useState } from "react";
 import styled from "styled-components";
 import ShoppingProduct from "../components/ShoppingProduct";
+import { Keyboard } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 5% 0 5%;
@@ -34,18 +35,36 @@ const Texts = styled.Text`
   font-size: 20px;
   font-family: "GothicRegular";
 `;
+const ShoppingContainer = styled.View`
+  width: 100%;
+`;
 
 const ShoppingScreen = ({ navigation }) => {
+  const [text, setText] = useState();
+  const [textItems, setTextItems] = useState([]);
+
+  const handleAddFood = () => {
+    Keyboard.dismiss();
+    setTextItems([...textItems, text]);
+    setText(null);
+  };
+
   return (
     <Wrapper>
-      <TextInputStyled placeholder="Add food" />
+      <TextInputStyled
+        placeholder="Add food"
+        onChangeText={(texty) => setText(texty)}
+        value={text}
+      />
       <Line />
-      <AddButton>
+      <AddButton onPress={() => handleAddFood()}>
         <Texts>+ Add</Texts>
       </AddButton>
-      <ShoppingProduct foodName="Eggs" />
-      <ShoppingProduct foodName="Milk" />
-      <ShoppingProduct foodName="Cheese" />
+      <ShoppingContainer>
+        {textItems.map((item, index) => {
+          return <ShoppingProduct key={index} foodName={item} />;
+        })}
+      </ShoppingContainer>
     </Wrapper>
   );
 };
