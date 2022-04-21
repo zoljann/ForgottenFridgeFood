@@ -18,16 +18,31 @@ const TextInputStyled = styled.TextInput`
 `;
 const Line = styled.View`
   bottom: 25px;
-  width: 50%;
+  width: 60%;
   border-width: 0.3px;
-  border-color: gray;
+  border-color: ${(props) => props.theme.colors.primary};
 `;
-const ShoppingProductContainer = styled.View``;
+const AddButton = styled.TouchableOpacity`
+  align-items: center;
+  background-color: ${(props) => props.theme.colors.primary};
+  border-radius: 45px;
+  margin-bottom: 5%;
+`;
+const Texts = styled.Text`
+  margin: 1% 10% 1% 10%;
+  color: ${(props) => props.theme.text.white};
+  font-size: 20px;
+  font-family: "GothicRegular";
+`;
+
 const ShoppingScreen = ({ navigation }) => {
   return (
     <Wrapper>
       <TextInputStyled placeholder="Add food" />
       <Line />
+      <AddButton>
+        <Texts>+ Add</Texts>
+      </AddButton>
       <ShoppingProduct foodName="Eggs" />
       <ShoppingProduct foodName="Milk" />
       <ShoppingProduct foodName="Cheese" />

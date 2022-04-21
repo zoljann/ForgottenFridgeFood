@@ -73,7 +73,6 @@ const Product = (props) => {
 
   //handle updating product
   const handleUpdateProduct = () => {
-    console.log("Na update funkciji:", foodCounter);
     fetch("http://10.0.2.2:3000/update", {
       method: "POST",
       headers: {
