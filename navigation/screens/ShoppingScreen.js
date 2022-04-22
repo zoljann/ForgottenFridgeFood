@@ -45,7 +45,7 @@ const ShoppingContainer = styled.View`
   width: 100%;
 `;
 
-const ShoppingScreen = ({ navigation }) => {
+const ShoppingScreen = () => {
   const [text, setText] = useState();
   const [textItems, setTextItems] = useState([]);
   const [loading, setLoading] = useState(true);

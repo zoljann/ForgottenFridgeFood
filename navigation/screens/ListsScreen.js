@@ -17,7 +17,7 @@ const MenuItems = styled.View`
   align-items: center;
 `;
 
-const ListsScreen = ({ navigation }) => {
+const ListsScreen = () => {
   const [data, setData] = useState([]);
   const [filter, setFilteredData] = useState([]);
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Image } from "react-native";
 
 const Wrapper = styled.View`
   padding: 15% 5% 0 5%;
@@ -53,7 +52,7 @@ const Data = styled.View`
   padding: 2%;
   justify-content: center;
 `;
-const ImpactScreen = ({ navigation }) => (
+const ImpactScreen = () => (
   <Wrapper>
     <Title>Impact</Title>
     <WorldMap>
