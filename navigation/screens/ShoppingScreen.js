@@ -35,6 +35,12 @@ const Texts = styled.Text`
   font-size: 20px;
   font-family: "GothicRegular";
 `;
+const ShoppingEmpty = styled.Text`
+  color: ${(props) => props.theme.text.gray};
+  font-size: 17px;
+  font-family: "GothicRegular";
+  text-align: center;
+`;
 const ShoppingContainer = styled.View`
   width: 100%;
 `;
@@ -42,11 +48,13 @@ const ShoppingContainer = styled.View`
 const ShoppingScreen = ({ navigation }) => {
   const [text, setText] = useState();
   const [textItems, setTextItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleAddFood = () => {
     Keyboard.dismiss();
     setTextItems([...textItems, text]);
     setText(null);
+    setLoading(false);
   };
 
   return (
@@ -60,11 +68,18 @@ const ShoppingScreen = ({ navigation }) => {
       <AddButton onPress={() => handleAddFood()}>
         <Texts>+ Add</Texts>
       </AddButton>
-      <ShoppingContainer>
-        {textItems.map((item, index) => {
-          return <ShoppingProduct key={index} foodName={item} />;
-        })}
-      </ShoppingContainer>
+      {loading ? (
+        <ShoppingEmpty>
+          You will see your shopping list here..but the list is empty. Start
+          typing above to add food.
+        </ShoppingEmpty>
+      ) : (
+        <ShoppingContainer>
+          {textItems.map((item, index) => {
+            return <ShoppingProduct key={index} foodName={item} />;
+          })}
+        </ShoppingContainer>
+      )}
     </Wrapper>
   );
 };

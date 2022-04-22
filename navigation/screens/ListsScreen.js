@@ -84,8 +84,8 @@ const ListsScreen = ({ navigation }) => {
             marginBottom: 10,
             fontFamily: "GothicRegular",
           }}
-          placeholderTextColor={"#479FEC"}
-          placeholder={"Do i have.."}
+          placeholderTextColor={"grey"}
+          placeholder={"Do i have in my fridge.."}
           value={search}
           onChangeText={(text) => searchFilter(text)}
         />
