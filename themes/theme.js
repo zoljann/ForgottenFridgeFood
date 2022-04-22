@@ -6,5 +6,6 @@ export const theme = {
     black: "black",
     gray: "gray",
     white: "white",
+    softgray: "#DADADA",
   },
 };
