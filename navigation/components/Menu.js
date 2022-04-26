@@ -6,7 +6,7 @@ import { Alert } from "react-native";
 
 const Wrapper = styled.View`
   height: 40px;
-  width: 50%;
+  width: 70%;
   background-color: ${(props) => props.theme.colors.primary};
   border-radius: 45px;
   justify-content: space-between;
