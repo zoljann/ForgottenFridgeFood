@@ -31,5 +31,4 @@ We know that is hard for you to track all your fridge essentials and and consume
 
 # Contributors
 
-[@zoljann](https://github.com/zoljann) - coding &
-[@ziggy](https://github.com/AdemZiggy) - idea
+[@zoljann](https://github.com/zoljann)
